@@ -26,8 +26,16 @@ class ClientesController extends AppController{
   }
 
   function excluir($id = null){
-    $this->Cliente->delete($id);
-    $this->Session->setFlash('Excluido com sucesso');
+    if($this->Cliente->delete($id)){
+    
+      $this->Session->setFlash('Cliente excluido com sucesso', 'default', array('class' => 'alert alert-success'));
+
+
+
+    }else{
+      $this->Session->setFlash('Probelma na exclusão do cliente', 'default', array('class' => 'alert alert-error'));
+    
+    }
     $this->redirect('/clientes/consultar');
 
 

@@ -1,4 +1,9 @@
 <div style="margin:0 auto;" class="span10">
+
+
+<?php echo $this->Session->flash(); ?>
+
+
 <h1>Clientes cadastrados</h1>
 
 <script type="text/javascript" charset="utf-8">
