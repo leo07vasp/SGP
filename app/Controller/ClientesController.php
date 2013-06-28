@@ -3,17 +3,17 @@ class ClientesController extends AppController{
 
 
   function cadastrar(){
-  		if (empty($this->request->data)) {
-        
-      } else {
-        $data = $this->request->data;
+  		if ($this->request->is('post')) {
+                $data = $this->request->data;
         if($this->Cliente->save($data['Clientes'])){
           $this->Session->setFlash('Cliente cadastrado com sucesso', 'default', array('class' => 'alert alert-success'));
         }else{
           $this->Session->setFlash('Falha no cadastro do cliente', 'default', array('class' => 'alert alert-error'));
         }
 
-          
+            $this->redirect(array('action' => 'consultar'));
+      } else {
+
     }
 
   }

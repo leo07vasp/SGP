@@ -44,7 +44,7 @@
     <col style="width:15%" />
     <col style="width:15%" />
     <col style="width:15%" />
-    <col style="width:18%" />
+    <col style="width:5%" />
 
         
    <thead>
@@ -66,7 +66,7 @@
     	<td><?php echo $cliente['Cliente']['razao_social'] ?></td>
     	<td><?php echo $cliente['Cliente']['tipo_comercio'] ?></td>
     	<td><?php echo $cliente['Cliente']['dominio'] ?></td>
-    	<td>
+    	<td align="center" nowrap="nowrap">
             
     		<?php echo $this->Html->link('Editar '.$this->Html->tag('i', '', array('class' => 'icon-edit')),
             array('controller' => 'clientes', 'action' => 'editar', $cliente['Cliente']['id']),
