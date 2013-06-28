@@ -25,7 +25,7 @@
 	
 	
 	<div class="container-fluid" id="container">
-		<div class="content" id="content">
+		<div class="container" id="content">
 			<!--?php echo $this->fetch('title'); ?-->
 			<?php echo $this->fetch('content'); ?>
 		</div>
