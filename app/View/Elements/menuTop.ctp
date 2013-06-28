@@ -24,7 +24,7 @@
               	<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Projetos <b class="caret"></b></a>
               	<ul class="dropdown-menu">
               		<li> <a href="<?php echo $this->Html->url('/projetos/cadastrar'); ?>">Cadastrar</a></li>
-              		<li> <a href="<?php echo $this->Html->url('/projetos/editar')?>">Editar</a></li>
+              		
               		<li> <a href="<?php echo $this->Html->url('/projetos/consultar')?>">Consultar</a></li>
               	</ul>
               </li>
@@ -33,7 +33,7 @@
               <a href="#about" class="dropdown-toggle" data-toggle="dropdown" >Colaboradoes<b class="caret"></b></a>
               <ul class="dropdown-menu">
               		<li> <a href="<?php echo $this->Html->url('/colaboradores/cadastrar')?>">Cadastrar</a></li>
-              		<li> <a href="<?php echo $this->Html->url('/colaboradores/editar')?>">Editar</a></li>
+              		
               		<li> <a href="<?php echo $this->Html->url('/colaboradores/consultar')?>">Consultar</a></li>
               </ul>
               
@@ -44,7 +44,6 @@
               
               <ul class="dropdown-menu">
               		<li> <a href="<?php echo $this->Html->url('/clientes/cadastrar')?>">Cadastrar</a></li>
-              		<li> <a href="<?php echo $this->Html->url('/clientes/editar')?>">Editar</a></li>
               		<li> <a href="<?php echo $this->Html->url('/clientes/consultar')?>">Consultar</a></li>
               </ul>
               

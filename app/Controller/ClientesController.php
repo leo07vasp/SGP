@@ -22,12 +22,19 @@ class ClientesController extends AppController{
         
         $this->Cliente->id_cliente = $id;
         $this->set('cliente', $this->Cliente->findById($id));  
+        
+        
         $data = $this->request->data;
         
-        if($data){
-          $this->Cliente->read(null, $this->Cliente->id_cliente);
-          $this->Cliente->set($data);
-          $this->Cliente->save();
+        if($this->request->is('post')){
+          $data['Clientes']['id'] = $data['id'];
+          if($this->Cliente->save($data['Clientes'])){
+                $this->Session->setFlash('Cliente Atualizado com sucesso.', 'default', array('class' => 'alert alert-success'));
+                 
+          }else{
+                $this->Session->setFlash('Erro ao atualizar Cliente.', 'default', array('class' => 'alert alert-error'));
+          }
+          $this->redirect(array('action' => 'consultar'));
         }else{
 
         }

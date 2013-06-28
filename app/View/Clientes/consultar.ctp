@@ -1,4 +1,4 @@
-<div style="margin:0 auto;" class="span10">
+<div style="margin:0 auto;">
 
 
 <?php echo $this->Session->flash(); ?>

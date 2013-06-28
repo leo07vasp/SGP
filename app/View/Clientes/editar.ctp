@@ -3,7 +3,7 @@
 <?php 
 	foreach($cliente as $cli){
 
-print_r($cli);
+
 
  echo $this->Session->flash(); 
 
