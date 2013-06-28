@@ -44,7 +44,7 @@
     <col style="width:15%" />
     <col style="width:15%" />
     <col style="width:15%" />
-    <col style="width:17%" />
+    <col style="width:18%" />
 
         
    <thead>

@@ -7,7 +7,11 @@ class ClientesController extends AppController{
         
       } else {
         $data = $this->request->data;
-        $this->Cliente->save($data['Clientes']);
+        if($this->Cliente->save($data['Clientes'])){
+          $this->Session->setFlash('Cliente cadastrado com sucesso', 'default', array('class' => 'alert alert-success'));
+        }else{
+          $this->Session->setFlash('Falha no cadastro do cliente', 'default', array('class' => 'alert alert-error'));
+        }
 
           
     }
@@ -18,9 +22,16 @@ class ClientesController extends AppController{
         
         $this->Cliente->id_cliente = $id;
         $this->set('cliente', $this->Cliente->findById($id));  
+        $data = $this->request->data;
+        
+        if($data){
+          $this->Cliente->read(null, $this->Cliente->id_cliente);
+          $this->Cliente->set($data);
+          $this->Cliente->save();
+        }else{
 
-    //$data = array('nome_cliente' => 'My new title');
-    //$this->Cliente->save($data);
+        }
+        
 
 
   }
