@@ -14,7 +14,7 @@ class ColaboradoresController extends AppController{
 
 
   function consultar(){
-
+  		$this->set('colaboradores', $this->Colaboradore->find('all'));
   	
   }
 

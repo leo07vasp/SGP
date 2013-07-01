@@ -7,14 +7,14 @@
           <div class="nav-collapse collapse">
             
              <div class="btn-group pull-right">
-              <a class="btn " href="<?php echo $this->Html->url('/usuarios/editar'); ?>"><i class="icon-user icon-black"></i> Leonardo</a>
+              <a class="btn " href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-user icon-black"></i> <?php echo $this->Session->read('Auth.User.username'); ?></a>
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo $this->Html->url('/usuarios/editar'); ?>"><i class="icon-pencil"></i> Editar</a></li>
-              <li><a href="<?php echo $this->Html->url('/usuarios/configuracoes'); ?>"><i class="icon-cog"></i> Configurações</a></li>
-              <li><a href="<?php echo $this->Html->url('/usuarios/administrador'); ?>"><i class="icon-tasks"></i> Root manager</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-pencil"></i> Editar</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/configuracoes'); ?>"><i class="icon-cog"></i> Configurações</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/administrador'); ?>"><i class="icon-tasks"></i> Root manager</a></li>
               <li class="divider"></li>
-              <li><a href="#"><i class="i"></i> logout</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/logout'); ?>"><i class="i"></i> logout</a></li>
             </ul>
           </div>
             

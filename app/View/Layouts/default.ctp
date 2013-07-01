@@ -19,7 +19,7 @@
 	
 	</head>
 <body>
-
+<!--?php echo $this->params['controller']; die; ?-->
  <?php echo $this->element('menuTop'); ?>
 	
 	

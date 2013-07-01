@@ -33,6 +33,39 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+public $components = array(
+    'Session',
+    'Auth' => array(
+        'authenticate' => array(
+            'Form' => array(
+                'userModel' => 'User',
+                'fields' => array(
+                    'username' => 'username',
+                    'password' => 'password'
+                )
+            )
+        ),
+        'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
+        'logoutRedirect' => array('controller' => 'home', 'action' => 'index'),
+        'loginAction' => array('admin' => false, 'controller' => 'Users', 'action' => 'login')
+    )
+);
 
+    public function beforeFilter(){
+        Security::setHash('md5');
+        
+              //$this->Auth->allow('consultar', 'cadastrar');      
+
+
+    }
+
+    public function isAuthorized($user){
+        if (isset($user['role'])) {
+            return true;
+        }
+
+        return false;
+    }
+ 
 
 }
