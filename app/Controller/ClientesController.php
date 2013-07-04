@@ -27,8 +27,7 @@ class ClientesController extends AppController{
         $data = $this->request->data;
         
         if($this->request->is('post')){
-          $data['Clientes']['id'] = $data['id'];
-          if($this->Cliente->save($data['Clientes'])){
+            if($this->Cliente->save($data['Clientes'])){
                 $this->Session->setFlash('Cliente Atualizado com sucesso.', 'default', array('class' => 'alert alert-success'));
                  
           }else{

@@ -1,1 +1,3 @@
-consultar Projeto
+<?php 
+print_r($projetos);
+ ?>

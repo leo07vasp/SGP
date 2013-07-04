@@ -7,11 +7,9 @@
 
  echo $this->Session->flash(); 
 
-	echo $this->Form->create('Clientes', array('action' => 'editar'));
+echo $this->Form->create('Clientes', array('action' => 'editar'));
 
-echo '<input type="hidden" name="type" value="atualizar"/>';
-
-echo '<input type="hidden" name="id" value="'.$cli['id'].'"/>';
+echo $this->Form->input('id', array('type'=>'hidden','value'=> ''.$cli['id'].'', 'class' => 'cliente-id')); 
 
 echo $this->Form->input('nome_cliente', array('value' => $cli['nome_cliente']), array('placeholder' => 'Nome', 'required' ), array('label' => 'Nome')); 
 echo $this->Form->input('razao_social', array('value' => $cli['razao_social']), array('placeholder' => 'Razão Social'), array('label' => 'Razão Social')); 
