@@ -1,10 +1,4 @@
- <h1>Bem vindo ao SPG</h1>
+ <h1>Bem vindo ao SPG <span style="text-transform:capitalize"><?php echo $this->Session->read('Auth.User.username'); ?></span></h1>
  
- <pre>
- <?php 
-
-
-
-  ?>
- </pre>
+ 
  

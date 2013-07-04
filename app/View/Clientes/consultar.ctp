@@ -11,13 +11,14 @@
             $(document).ready(function() {
                     $('#cli_cadastrados').dataTable( {
         "sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "oLanguage": {
-            "sInfo": "Mostrando (_START_ a _END_) de um total de _TOTAL_ registros", 
-              "sInfoFiltered": " - filtrado _MAX_ registros",
+        "oLanguage": {
+             "sInfo": "Mostrando (_START_ a _END_) de um total de _TOTAL_ registros", 
+             "sZeroRecords": "Não há registros",
+             "sInfoFiltered": " - filtrado _MAX_ registros",
              "sSearch": "Buscar",   
-      "oPaginate": {
-        "sNext": "Proximo",
-         "sPrevious": "Anterior"
+             "oPaginate": {
+             "sNext": "Proximo",
+             "sPrevious": "Anterior"
       }
     },
 

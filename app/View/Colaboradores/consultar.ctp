@@ -7,21 +7,14 @@
 <h1>Colaboradores cadastrados</h1>
 
 
-<pre>
-<?php foreach ($colaboradores as $colaborador): ?>
-	<?php print_r($colaborador); ?>
-<?php endforeach?>
-</pre>
-
-
-
 <script type="text/javascript" charset="utf-8">
 
             $(document).ready(function() {
-                    $('#cli_cadastrados').dataTable( {
+                    $('#col_cadastrados').dataTable( {
         "sDom": "<'row-fluid'<'span6'T><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
             "oLanguage": {
             "sInfo": "Mostrando (_START_ a _END_) de um total de _TOTAL_ registros", 
+             "sZeroRecords": "Não há registros",
               "sInfoFiltered": " - filtrado _MAX_ registros",
              "sSearch": "Buscar",   
       "oPaginate": {
@@ -46,7 +39,7 @@
 
 </script>
 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="cli_cadastrados">
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="col_cadastrados">
 
     <col style="width:3%;" />
     <col style="width:20%" />
@@ -62,7 +55,6 @@
         <th>Nome</th>
         <th>Funcão</th>
         <th>Email</th>
-        <th>Dominio</th>
         <th>Ações</th>
     </tr>
     </thead> 
@@ -70,23 +62,22 @@
 <tbody>
     <?php foreach ($colaboradores as $colaborador): ?>
     <tr>
-    	<td><?php echo $colaborador['Cliente']['id'] ?></td>
-    	<td><?php echo $colaborador['Cliente']['nome_cliente'] ?></td>
-    	<td><?php echo $colaborador['Cliente']['razao_social'] ?></td>
-    	<td><?php echo $colaborador['Cliente']['tipo_comercio'] ?></td>
-    	<td><?php echo $colaborador['Cliente']['dominio'] ?></td>
+    	<td><?php echo $colaborador['Colaboradore']['id'] ?></td>
+    	<td><?php echo $colaborador['Colaboradore']['nome'] ?></td>
+    	<td><?php echo $colaborador['Colaboradore']['funcao'] ?></td>
+    	<td><?php echo $colaborador['Colaboradore']['email'] ?></td>
     	<td align="center" nowrap="nowrap">
             
     		<?php echo $this->Html->link('Editar '.$this->Html->tag('i', '', array('class' => 'icon-edit')),
-            array('controller' => 'clientes', 'action' => 'editar', $colaborador['Cliente']['id']),
+            array('controller' => 'colaboradores', 'action' => 'editar', $colaborador['Colaboradore']['id']),
             array('class' => 'btn', 'title' => 'Editar' , 'escape'=>false)
             ); ?>
             
             
             <?php 
                echo $this->Html->link('Excluir '. $this->Html->tag('i', '', array('class' => ' icon-trash')), 
-                array('controller' => 'clientes', 'action' => 'excluir', $colaborador['Cliente']['id']),
-                array('class' => 'btn', 'title' => 'Excluir' , 'escape'=>false), "Deseja realmente excluir este cliente?"); 
+                array('controller' => 'colaboradores', 'action' => 'excluir', $colaborador['Colaboradore']['id']),
+                array('class' => 'btn', 'title' => 'Excluir' , 'escape'=>false), "Deseja realmente excluir este colaborador?"); 
              ?>
             
     	</td>
