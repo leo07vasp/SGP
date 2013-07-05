@@ -2,10 +2,27 @@
 class ColaboradoresController extends AppController{
 
 
+
+
   function cadastrar(){
+
+
+         $this->loadModel('Permissoe');
+         $this->loadModel('User');
+         $this->set('permissoes', $this->Permissoe->find('list',array('fields'=>array('id','tipo'))));
+
+   
     if ($this->request->is('post')) {
-                $data = $this->request->data;
-                
+
+        $data = $this->request->data;
+  
+     
+                if($data['Colaboradores']['isuser'] == 1){
+                      $this->User->save($data['user']);
+                       $this->Session->setFlash('Colaborador cadastrado com sucesso como usuario também', 'default', array('class' => 'alert alert-success'));
+     
+                }
+
                 
         if($this->Colaboradore->save($data['Colaboradores'])){
           $this->Session->setFlash('Colaborador cadastrado com sucesso', 'default', array('class' => 'alert alert-success'));
@@ -14,14 +31,29 @@ class ColaboradoresController extends AppController{
         }
 
             $this->redirect(array('action' => 'consultar'));
-      } else {
-
-    }
-  		
+      } 
+      
   }
 
+  function verifica($cliente = null){
+
+        $this->autoRender = false;
+           $this->loadModel('User');
+        
+        $exists = $this->User->find('first', array(
+         'conditions' => array('User.username' => $this->request->data['nome'])
+          ));
+        
+        if($exists){
+          echo 'false';
+        }else{
+          echo 'true';
+        }
+  }
+
+
   function editar($id = null){
-  		        $this->Colaboradore->id_colaborador = $id;
+              $this->Colaboradore->id_colaborador = $id;
         $this->set('colaborador', $this->Colaboradore->findById($id));  
         
         
@@ -60,8 +92,8 @@ class ColaboradoresController extends AppController{
 
 
   function consultar(){
-  		$this->set('colaboradores', $this->Colaboradore->find('all'));
-  	
+      $this->set('colaboradores', $this->Colaboradore->find('all'));
+    
   }
 
 }

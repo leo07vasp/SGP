@@ -31,10 +31,6 @@ class ProjetosController extends AppController{
 // ));
 
 
-
-
-
-
     $cidades = $this->Projeto->find('all', array(
       'joins' => array(
         array(

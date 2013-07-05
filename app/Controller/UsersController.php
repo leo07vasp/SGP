@@ -2,6 +2,14 @@
 
   class UsersController extends AppController {
 
+    public $validate = array(
+    'username' => array(
+        'isUnique' => array(
+            'rule' => 'isUnique',
+            'message' => 'An account with this email address already exists.'
+        )
+    )
+);
 
 
     public function beforeFilter() {
