@@ -39,6 +39,7 @@
 
 </script>
 
+
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="col_cadastrados">
 
     <col style="width:3%;" />
@@ -46,7 +47,8 @@
     <col style="width:15%" />
     <col style="width:15%" />
     <col style="width:15%" />
-    <col style="width:5%" />
+    <col style="width:10%" />
+    
 
         
    <thead>
@@ -55,17 +57,24 @@
         <th>Nome</th>
         <th>Funcão</th>
         <th>Email</th>
+        <th>Usuario de Sistema</th>
         <th>Ações</th>
+        
     </tr>
     </thead> 
 
 <tbody>
     <?php foreach ($colaboradores as $colaborador): ?>
+    
+    
     <tr>
     	<td><?php echo $colaborador['Colaboradore']['id'] ?></td>
     	<td><?php echo $colaborador['Colaboradore']['nome'] ?></td>
     	<td><?php echo $colaborador['Colaboradore']['funcao'] ?></td>
     	<td><?php echo $colaborador['Colaboradore']['email'] ?></td>
+        
+        <td><?php echo ($colaborador['Colaboradore']['isuser'] == 1) ? 'Sim' : 'Não'; ?></td>
+           
     	<td align="center" nowrap="nowrap">
             
     		<?php echo $this->Html->link('Editar '.$this->Html->tag('i', '', array('class' => 'icon-edit')),
@@ -81,6 +90,7 @@
              ?>
             
     	</td>
+     
      </tr>
     <?php endforeach; ?>
  </tbody>   

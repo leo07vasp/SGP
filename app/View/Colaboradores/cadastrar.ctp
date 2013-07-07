@@ -20,7 +20,7 @@ echo $this->Form->input('funcao', array('placeholder' => 'Função'), array('lab
 echo $this->Form->input('email',array('placeholder' => 'Email'), array('label' => 'Tipo de Comércio')); 
 
 echo $this->Form->label('isuser', 'Criar Usuário', 'label-isuser no-margin');
-echo $this->Form->input('isuser', array('label' => false, 'type' => 'checkbox', 'class' => 'isuser')); 
+echo $this->Form->input('isuser', array('label' => false, 'type' => 'checkbox', 'class' => 'isuser', 'checked' => false)); 
 
 echo '<div class="control-user">';
 
@@ -48,17 +48,28 @@ echo $this->Form->end(array('label' => 'Salvar Colaborador', 'class' => 'btn sal
 
 <script>
 	jQuery(document).ready(function($) {
+
+		jQuery('#ColaboradoresUsuario').tooltip({
+			html : true,
+			text: 'teste',
+			placement: 'right',
+			trigger: 'focus'
+
+		});
+		
+
 		jQuery('.isuser').on('change', function(){
 			if(jQuery(this).is(':checked')){
 				jQuery('.control-user').show();
 			}else{
 				jQuery('.control-user').hide();
+				jQuery('.salvar-colaborador').removeAttr('disabled');
 			}
 		});
 
 
 		jQuery('#ColaboradoresUsuario').on('focusout', function(){
-	
+			elem = jQuery(this);
 			jQuery.ajax({
 				dataType: "html",
          	    type: "POST",
@@ -66,12 +77,20 @@ echo $this->Form->end(array('label' => 'Salvar Colaborador', 'class' => 'btn sal
             	url: '<?php echo Router::url(array('controller'=>'colaboradores','action'=>'verifica'));?>',
             	data: ({nome:jQuery(this).val()}),
             	beforeSend: function(){
-            		jQuery('.salvar-colaborador').attr('data-loading-text', 'procurando cliente').attr('disabled', 'disabled');
+            		jQuery('.salvar-colaborador').attr('disabled', 'disabled');
             		
             	},
 
 				success: function(data){
-					console.log(data);
+					if(data == 'false'){
+						console.log(jQuery(this).closest('.control-group'));
+						jQuery(elem).closest('.control-group').addClass('error');
+						jQuery(elem).after('<span class="help-inline">Usuário Existente</span>');
+					}else{
+						jQuery(elem).closest('.control-group').removeClass('error');
+						jQuery('.salvar-colaborador').removeAttr('disabled');
+						jQuery(elem).closest('.control-group').find('span.help-inline').remove();
+					}
 				}
 			});
 

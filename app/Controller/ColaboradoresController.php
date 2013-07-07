@@ -18,6 +18,7 @@ class ColaboradoresController extends AppController{
   
      
                 if($data['Colaboradores']['isuser'] == 1){
+                      
                       $this->User->save($data['user']);
                        $this->Session->setFlash('Colaborador cadastrado com sucesso como usuario também', 'default', array('class' => 'alert alert-success'));
      
@@ -53,15 +54,15 @@ class ColaboradoresController extends AppController{
 
 
   function editar($id = null){
-              $this->Colaboradore->id_colaborador = $id;
+              
         $this->set('colaborador', $this->Colaboradore->findById($id));  
         
         
         $data = $this->request->data;
         
         if($this->request->is('post')){
-          $data['Colaboradore']['id'] = $data['id'];
-          if($this->Cliente->save($data['Colaboradore'])){
+          
+          if($this->Colaboradore->save($data['Colaboradores'])){
                 $this->Session->setFlash('Colaborador Atualizado com sucesso.', 'default', array('class' => 'alert alert-success'));
                  
           }else{
