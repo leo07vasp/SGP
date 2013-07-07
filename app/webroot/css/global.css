@@ -1,1 +1,5 @@
 body{padding-top: 60px;}
+
+.mensagens-container{}
+.mensagens-container ul.msg{list-style: none;}
+.mensagens-container ul.msg li{list-style: none;}

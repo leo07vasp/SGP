@@ -11,8 +11,8 @@
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-pencil"></i> Editar</a></li>
-              <li><a href="<?php echo $this->Html->url('/users/configuracoes'); ?>"><i class="icon-cog"></i> Configurações</a></li>
-              <li><a href="<?php echo $this->Html->url('/users/administrador'); ?>"><i class="icon-tasks"></i> Root manager</a></li>
+              <li><a href="<?php echo $this->Html->url('/msgs/mensagens'); ?>"><i class="icon-envelope"></i> Mensagens</a></li>
+              <li><a href="<?php echo $this->Html->url('/users/administrador'); ?>"><i class="icon-tasks"></i> Ver Usuários do sistema</a></li>
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout'); ?>"><i class="i"></i> logout</a></li>
             </ul>
