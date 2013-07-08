@@ -6,6 +6,9 @@
   
 <div class="row-fluid mensagens-container">
     <div class="span3">
+	<a href="#">nao lidas</a>
+	<a href="#">enviadas</a>
+	<a href="#">todas</a>
       <ul class="msg">
 <?php foreach($mensagens as $mensagem): ?>      	
 
