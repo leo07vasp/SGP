@@ -1,5 +1,9 @@
 body{padding-top: 60px;}
 
-.mensagens-container{}
+.mensagens-container{padding-top: 20px; margin-top: 10px;}
 .mensagens-container ul.msg{list-style: none;}
-.mensagens-container ul.msg li{list-style: none;}
+.mensagens-container ul.msg li{list-style: none; cursor: pointer; border-bottom: 1px solid #DDDDDD; padding: 5px 0 5px 10px; position: relative; }
+.mensagens-container ul.msg li span.de{display: block; clear: left; }
+.mensagens-container ul.msg li span.para{display: block; clear: left; }
+.mensagens-container ul.msg li h6{margin:1px 0; display: block}
+.mensagens-container ul.msg li:hover{background: #F9F9F9; }

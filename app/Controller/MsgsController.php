@@ -5,7 +5,7 @@ class MsgsController extends AppController{
 
 public function mensagens(){
 
-
+	$connectedUser =  $this->Session->read('Auth.User.id');
 
 	$mensagens = $this->Msg->find('all', 
 	array('joins' => array(
@@ -27,7 +27,7 @@ public function mensagens(){
 ),
 		'fields' => array('para.username', 'Msg.*', 'de.username'),
 		'conditions' => array(
-        'Msg.para' => 5
+        'Msg.para' => $connectedUser
    		 )
 		
 	));
@@ -35,6 +35,15 @@ public function mensagens(){
 
     $this->set('mensagens', $mensagens);	
 
+}
+
+
+public function getmensagem($id = null){
+     $this->autoRender = false;
+
+      //echo $this->request->data['id'];
+     
+     return json_encode( $this->Msg->findById($this->request->data['id']));
 }
 
 

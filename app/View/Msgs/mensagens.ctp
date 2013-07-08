@@ -1,17 +1,17 @@
+<div class="row-fluid ">
+<span class="span9">
+  <button class="btn btn-primary pull-right">Nova Mensagem</button>
+</span>
+</div>
+  
 <div class="row-fluid mensagens-container">
-
-	<pre>
-		
-		<?php print_r($mensagens); die; ?>
-	</pre>
-			
-    <div class="span2">
+    <div class="span3">
       <ul class="msg">
 <?php foreach($mensagens as $mensagem): ?>      	
 
 	<li class="int-msg" data-msg="<?php echo $mensagem['Msg']['id']?>">
-      		<span><strong>De:</strong> leonardo</span><br/>
-      		<span><strong>Para:</strong> leonardo</span>
+      		<span class="de"><strong>De:</strong> <?php echo $mensagem['de']['username'] ?></span>
+      		<span class="para"><strong>Para:</strong> <?php echo $mensagem['para']['username']; ?></span>
       		<h6><?php echo $mensagem['Msg']['titulo'] ?></h6>
       	</li>		
 
@@ -19,7 +19,38 @@
 <?php endforeach; ?>
       </ul>
     </div>
-    <div class="span10">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam laboriosam aut nobis ab consequuntur sit velit sapiente impedit quaerat doloremque eligendi ipsa nulla quos repudiandae ipsam quidem vitae a quis saepe cupiditate nemo modi culpa tenetur accusamus maiores voluptatibus alias asperiores at suscipit repellat autem dignissimos explicabo doloribus debitis neque necessitatibus et. Eaque excepturi molestiae repellendus ad qui ipsa nisi officia architecto adipisci saepe. A officiis eligendi voluptatem quae quidem tempora magni nesciunt distinctio totam ut natus quam veritatis reprehenderit! Laborum ea ipsam inventore sapiente cupiditate voluptates enim quod laboriosam! Inventore sint facilis quisquam tempore repellat cumque perspiciatis asperiores voluptate libero recusandae perferendis similique doloribus consequatur quasi harum ullam maxime numquam quos. Esse perferendis quasi deserunt aspernatur omnis aut inventore autem laboriosam labore cupiditate quo blanditiis voluptatum corrupti doloremque asperiores ab possimus perspiciatis reprehenderit officiis facere necessitatibus nam eveniet quibusdam? Eligendi veritatis ullam rem necessitatibus sint rerum qui facilis adipisci illo dignissimos. Autem quibusdam sunt laborum suscipit iste nisi minima dolorem deserunt sit at sapiente excepturi laboriosam quasi reprehenderit earum repellat provident ducimus explicabo quidem eos ex blanditiis nostrum distinctio! Sit veritatis libero voluptatibus officia architecto dolore debitis officiis ut eveniet odio perspiciatis error unde totam quam in quaerat corrupti.
+    <div class="span6 mensagem-conteudo">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. In unde vel minus optio sed eum perferendis rem doloribus hic magni labore facilis quia reprehenderit ex at dolorum earum quaerat possimus. A alias nemo minima illum ex recusandae cumque sunt veniam id deserunt quidem eum mollitia fugit. Dolores vitae aperiam a ut esse suscipit fugiat reprehenderit. Ut iure unde optio sapiente vero repellat commodi quisquam assumenda nemo tenetur quis sint ea cum deleniti nobis voluptatem illum consequuntur quod aliquid odio eaque temporibus dolore nesciunt tempora error quo dolorem explicabo? Obcaecati quaerat quisquam veritatis tenetur consequatur non dolorum earum porro iste aspernatur.
+    
     </div>
   </div>
+  
+  
+  <script>
+    jQuery(document).ready(function($) {
+      jQuery('ul.msg li').on('click', function(){
+        elem = jQuery(this);
+                jQuery.ajax({
+        dataType: "json",
+              type: "POST",
+              evalScripts: true,
+              url: '<?php echo Router::url(array('controller'=>'msgs','action'=>'getmensagem'));?>',
+              data: ({id:jQuery(elem).data('msg')}),
+              beforeSend: function(){
+             
+                
+              },
+
+        success: function(data){
+         console.log(data.Msg.mensagem);
+         jQuery('.span6.mensagem-conteudo').html(data.Msg.mensagem);
+        }
+      });
+
+
+
+
+      });
+    });
+
+  </script>
