@@ -12,6 +12,7 @@
 	<?php echo $this->Html->css($this->Html->url('/css/bootstrap-responsive.min.css', true)); ?>
 	<?php echo $this->Html->css($this->Html->url('/css/jquery.dataTables.css', true)); ?>
 	<?php echo $this->Html->css($this->Html->url('/css/datepicker.css', true)); ?>
+	<?php echo $this->Html->css($this->Html->url('/css/select2.css', true)); ?>
 	<?php echo $this->fetch('script'); ?>
 	<?php echo $this->Html->script($this->Html->url('/js/jquery-1.9.1.min.js', true)); ?>
 	<?php echo $this->Html->script($this->Html->url('/js/bootstrap.min.js', true)); ?>
@@ -19,6 +20,8 @@
 	<?php echo $this->Html->script($this->Html->url('/js/dataTables.bootstrap.js', true)); ?>
 	<?php echo $this->Html->script($this->Html->url('/js/bootstrap-datepicker.js', true)); ?>
 	<?php echo $this->Html->script($this->Html->url('/js/locales/bootstrap-datepicker.pt-BR.js', true)); ?>
+	<?php echo $this->Html->script($this->Html->url('/js/select2.js', true)); ?>
+	<?php echo $this->Html->script($this->Html->url('/js/select2_locale_pt-BR.js', true)); ?>
 	
 	</head>
 <body>

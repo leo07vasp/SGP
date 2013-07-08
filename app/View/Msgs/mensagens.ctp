@@ -1,6 +1,6 @@
-<div class="row-fluid ">
+﻿<div class="row-fluid ">
 <span class="span9">
-  <button class="btn btn-primary pull-right">Nova Mensagem</button>
+<a href="#myModal" role="button" class="btn btn-primary pull-right" data-toggle="modal">Nova Mensagem</a>
 </span>
 </div>
   
@@ -25,9 +25,47 @@
     </div>
   </div>
   
+  <div id="myModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Nova Mensagem</h3>
+  </div>
+  <div class="modal-body">
+  <label>Selecione o Destinatário</label>
+    <select id="e1" style="width:300px">
+        <option value="4">Leonardo</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+        <option value="5">Admin</option>
+    </select>
+   
+  </div>
+  <div class="modal-footer">
+    <a  data-dismiss="modal" href="#" class="btn">Fechar</a>
+    <a href="#" class="btn btn-primary">Enviar Mensagem</a>
+  </div>
+</div>
+  
   
   <script>
     jQuery(document).ready(function($) {
+	
+	$("#e1").select2({
+	
+	}); 
+	
+	$('.modal').modal({
+		show: true
+	});
+	
       jQuery('ul.msg li').on('click', function(){
         elem = jQuery(this);
                 jQuery.ajax({
