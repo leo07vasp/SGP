@@ -30,13 +30,25 @@
 	
 	
 	
-	<div class="container-fluid" id="container">
-		<div class="container" id="content">
+	<div class="container-fluid" id="wrap">
+		<div class="container">
 			<!--?php echo $this->fetch('title'); ?-->
 			<?php echo $this->fetch('content'); ?>
 		</div>
+
+
+	 <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit"><h6>SPG</h6> Leonardo Rodrigues</p>
+      </div>
+    </div>
+
 	</div>
 	
+
 
 </body>
 </html>

@@ -1,5 +1,6 @@
+	  <div class="navbar-wrapper">
 
-	 <div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper">
       <div class="navbar-inner">
         <div class="container">
          
@@ -7,11 +8,18 @@
           <div class="nav-collapse collapse">
             
              <div class="btn-group pull-right">
-              <a class="btn " href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-user icon-black"></i> <?php echo $this->Session->read('Auth.User.username'); ?> <span class="badge"><?php echo $this->requestaction('/msgs/countUnreadmsg/');  ?></span></a>
+              <a class="btn " href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-user icon-black"></i> <?php echo $this->Session->read('Auth.User.username'); ?> 
+                
+                <?php if($this->requestaction('/msgs/countUnreadmsg') > 0): ?>
+                <span class="label label-info">Novas mensagens</span>
+              <?php endif; ?>  
+              </a>
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-pencil"></i> Editar</a></li>
-              <li><a href="<?php echo $this->Html->url('/msgs/mensagens'); ?>"><i class="icon-envelope"></i> Mensagens <span class="badge"><?php echo $this->requestaction('/msgs/countUnreadmsg/');  ?></span></a> </li>
+              <li><a href="<?php echo $this->Html->url('/msgs/mensagens'); ?>"><i class="icon-envelope"></i> Mensagens 
+              <span class="badge"><?php echo $this->requestaction('/msgs/countUnreadmsg/');  ?></span>
+              </a> </li>
               <li><a href="<?php echo $this->Html->url('/users/administrador'); ?>"><i class="icon-tasks"></i> Ver Usuários do sistema</a></li>
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout'); ?>"><i class="i"></i> logout</a></li>
@@ -82,4 +90,5 @@
         </div>
       </div>
     </div>
+</div>
 	

@@ -1,19 +1,28 @@
-body{padding-top: 60px;}
-
-
+html, body { height: 100%;  } 
+#wrap .container{padding-top: 60px;}
+#wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -60px; } 
+#push, #footer { height: 60px; }
+#footer { background-color: #f5f5f5; }
+@media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
 
 /*mensagens css*/
 .mensagens-container{padding-top: 20px; margin-top: 10px;}
-.mensagens-container ul.msg{list-style: none; margin-left: 0; margin-top: 10px}
+.mensagens-container ul.msg{list-style: none; margin-left: 0; margin-top: 10px;  overflow-y: hidden;  background-color: #fff; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065); box-shadow: 0 1px 4px rgba(0,0,0,.065); }
 .mensagens-container ul.msg li{list-style: none; cursor: pointer; border-bottom: 1px solid #DDDDDD; padding: 5px 10px 5px 10px; position: relative; opacity: 0.5; overflow: hidden;}
 .mensagens-container ul.msg li *{font-weight: normal; color: #0088cc; font-size: 12px}
 .mensagens-container ul.msg li span.para{display: block; clear: left; }
-
 .mensagens-container ul.msg li span.de{display: none; clear: left; }
 .mensagens-container ul.msg li .date{display: none; clear: both; }
 .mensagens-container ul.msg li h6{margin:1px 0; display: block}
 .mensagens-container ul.msg li:hover{background: #F5F5F5; opacity:1;}
-.mensagens-container ul.msg li.msg-active:after{ color: #FFFFFF; content: ">"; display: block; font-size: 53px; position: absolute; right: -30px; text-shadow: -33px 1px 3px #FFFFFF; top: 24px;}
+.mensagens-container ul.msg li.msg-active:after{}
 .mensagens-container ul.msg li.msg-active{ opacity:1; background: #0088cc}
 .mensagens-container ul.msg li.msg-active *{color: #FFF;}
 
