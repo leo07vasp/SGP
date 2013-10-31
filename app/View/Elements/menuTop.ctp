@@ -3,17 +3,27 @@
    <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper">
       <div class="navbar-inner">
         <div class="container">
-         
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
           <a class="brand" href="<?php echo $this->Html->url('/') ?> ">SPG</a>
           <div class="nav-collapse collapse">
             
-             <div class="btn-group pull-right">
+
+
+                      
+             <li class="navbar-text btn-group pull-right dropdown">
               <a class="btn " href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-user icon-black"></i> <?php echo $this->Session->read('Auth.User.username'); ?> 
                 
                 <?php if($this->requestaction('/msgs/countUnreadmsg') > 0): ?>
                 <span class="label label-info">Novas mensagens</span>
               <?php endif; ?>  
               </a>
+             
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="<?php echo $this->Html->url('/users/editar'); ?>"><i class="icon-pencil"></i> Editar</a></li>
@@ -24,7 +34,8 @@
               <li class="divider"></li>
               <li><a href="<?php echo $this->Html->url('/users/logout'); ?>"><i class="i"></i> logout</a></li>
             </ul>
-          </div>
+           
+          </li>
             
             <ul class="nav">
               

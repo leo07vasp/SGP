@@ -55,6 +55,7 @@ var colaboradores = <?php echo $colaboradores?>;
 //console.log(clientes);
 //console.log(colaboradores);
 
+
 jQuery('#colaboradorNome').typeahead({
 	source: function(query, process) {
 		objects = [];
@@ -69,7 +70,19 @@ jQuery('#colaboradorNome').typeahead({
     updater: function(item) {
 		jQuery('.colaborador-id').val(map[item].id);
 		return item;
+		
     }
+	}).blur(function(){
+		ok = false;
+		for (var i in colaboradores) {
+			if(colaboradores[i].Colaboradore.nome == jQuery(this).val()){
+				ok = true;
+			}
+		}	
+		if(!ok){
+			alert('Colaborador Inexistente');
+			jQuery(this).val("");
+		}
 	});   
 
 
@@ -89,6 +102,17 @@ jQuery('#clienteNome').typeahead({
 		jQuery('.cliente-id').val(map[item].id);
 		return item;
     }
+	}).blur(function(){
+		ok = false;
+		for (var i in clientes) {
+			if(clientes[i].Cliente.nome_cliente == jQuery(this).val()){
+				ok = true;
+			}
+		}	
+		if(!ok){
+			alert('Cliente Inexistente');
+			jQuery(this).val("");
+		}
 	});            
 
 
